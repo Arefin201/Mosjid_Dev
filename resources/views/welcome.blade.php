@@ -4,7 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al-Noor Mosque | Islamic Center</title>
+    <title>Badda Al-Amin Jame Mosjid| Islamic Center</title>
+
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Stay updated with accurate prayer times, announcements, and services from our Masjid." />
+    <meta name="keywords"
+        content="Mosque, Masjid, Prayer Time, Islamic Center, Jummah, Ramadan, Salah Schedule, Muslim Community" />
+    <meta name="author" content="Arefin Islam" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+    <meta property="og:title" content="Masjid - Accurate Prayer Times & Announcements" />
+    <meta property="og:description"
+        content="Get latest prayer schedules, events, and updates from your local Masjid." />
+    <meta property="og:image" content="https://yourdomain.com/preview.jpg" />
+    <meta property="og:url" content="https://yourdomain.com" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Masjid - Prayer Time & Info" />
+    <meta name="twitter:description" content="Follow accurate daily Salah time & Islamic announcements." />
+    <meta name="twitter:image" content="https://yourdomain.com/preview.jpg" />
+
+
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -18,6 +44,7 @@
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
         :root {
             --primary-green: #0a5f38;
@@ -202,6 +229,7 @@
         }
     </style>
 </head>
+
 
 <body class="text-gray-800">
     <!-- Navigation -->
