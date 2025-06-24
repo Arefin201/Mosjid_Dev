@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\CollectionController;
 use App\Http\Controllers\Admin\HomeBannerController;
 use App\Http\Controllers\Admin\LeadershipController;
 use App\Http\Controllers\Admin\PrayerTimeController;
+use App\Http\Controllers\Admin\AboutMosqueController;
 use App\Http\Controllers\Admin\AnnouncementController;
 use App\Http\Controllers\Admin\MosqueSettingController;
 use App\Http\Controllers\Admin\MonthlyCollectionController;
@@ -24,7 +25,7 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 
 
 
-Route::get('/test-db', function() {
+Route::get('/test-db', function () {
     try {
         DB::connection()->getPdo();
         return "Connected successfully to: " . DB::connection()->getDatabaseName();
@@ -76,10 +77,6 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::post('/leadership/reorder', [LeadershipController::class, 'reorder'])->name('admin.leadership.reorder');
 
 
-    Route::view('/about', 'admin.pages.about.index')->name('admin.about');
-    Route::view('/about/edit', 'admin.pages.about.edit')->name('admin.about.edit');
-
-
     // Gallery Routes
     Route::get('/gallery', [GalleryController::class, 'index'])->name('admin.gallery.index');
     Route::get('/gallery/create', [GalleryController::class, 'create'])->name('admin.gallery.create');
@@ -88,29 +85,31 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::put('/gallery/{galleryItem}', [GalleryController::class, 'update'])->name('admin.gallery.update');
     Route::delete('/gallery/{galleryItem}', [GalleryController::class, 'destroy'])->name('admin.gallery.destroy');
 
-
     // Mosque Settings Routes
     Route::get('/settings', [MosqueSettingController::class, 'index'])->name('admin.settings.mosque');
     Route::post('/settings', [MosqueSettingController::class, 'update'])->name('admin.settings.mosque.update');
 
-
-// Monthly Collections Routes
-Route::prefix('monthly-collections')->group(function () {
-    Route::get('/', [MonthlyCollectionController::class, 'index'])->name('admin.monthly-collections.index');
-    Route::get('/create', [MonthlyCollectionController::class, 'create'])->name('admin.monthly-collections.create');
-    Route::post('/', [MonthlyCollectionController::class, 'store'])->name('admin.monthly-collections.store');
-    Route::get('/{monthlyCollection}/edit', [MonthlyCollectionController::class, 'edit'])->name('admin.monthly-collections.edit');
-    Route::put('/{monthlyCollection}', [MonthlyCollectionController::class, 'update'])->name('admin.monthly-collections.update');
-    Route::delete('/{monthlyCollection}', [MonthlyCollectionController::class, 'destroy'])->name('admin.monthly-collections.destroy');
-});
-
-    Route::view('/messages', 'admin.pages.messages.index')->name('admin.messages.index');
-    Route::view('/profile', 'admin.pages.profile.index')->name('admin.profile.index');
+    // Monthly Collections Routes
+    Route::prefix('monthly-collections')->group(function () {
+        Route::get('/', [MonthlyCollectionController::class, 'index'])->name('admin.monthly-collections.index');
+        Route::get('/create', [MonthlyCollectionController::class, 'create'])->name('admin.monthly-collections.create');
+        Route::post('/', [MonthlyCollectionController::class, 'store'])->name('admin.monthly-collections.store');
+        Route::get('/{monthlyCollection}/edit', [MonthlyCollectionController::class, 'edit'])->name('admin.monthly-collections.edit');
+        Route::put('/{monthlyCollection}', [MonthlyCollectionController::class, 'update'])->name('admin.monthly-collections.update');
+        Route::delete('/{monthlyCollection}', [MonthlyCollectionController::class, 'destroy'])->name('admin.monthly-collections.destroy');
+    });
 
     // Contact  Routes
     Route::get('/contact', [ContactController::class, 'index'])->name('admin.contact.index');
     Route::get('/contact/{contact}/view', [ContactController::class, 'view'])->name('admin.contact.view');
 
+
+    //About Sction Route
+ Route::get('/about', [AboutMosqueController::class, 'edit'])->name('admin.about');
+    Route::put('/about', [AboutMosqueController::class, 'update'])->name('admin.about.update');
+    
+    // profile All Route
+    Route::view('/profile', 'admin.pages.profile.index')->name('admin.profile.index');
 
 
 });

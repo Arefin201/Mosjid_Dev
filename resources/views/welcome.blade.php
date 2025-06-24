@@ -605,111 +605,67 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-4">About Our Mosque</h2>
-                <div class="w-24 h-1 bg-yellow-500 mx-auto"></div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
-                <div>
-                    <h3 class="text-2xl font-bold text-green-800 mb-4">Our History</h3>
-                    <p class="text-gray-600 mb-4 leading-relaxed">
-                        {{ $mosqueSettings->mosque_name ?? 'Al-Noor Mosque' }} was established with a small group of
-                        dedicated community members.
-                        What began as a humble prayer space has grown into a vibrant Islamic center serving thousands of
-                        Muslims in our city.
-                    </p>
-                    <p class="text-gray-600 leading-relaxed">
-                        Over the years, we've expanded our facilities to include a full-time Islamic school, community
-                        hall, and library.
-                        Our mosque has become a cornerstone of the Muslim community, providing spiritual guidance and
-                        social services to all.
-                    </p>
+    @if ($abouts->isNotEmpty())
+        @php
+            $about = $abouts->first();
+        @endphp
+        <section id="about" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-4">About Our Mosque</h2>
+                    <div class="w-24 h-1 bg-yellow-500 mx-auto"></div>
                 </div>
-                <div class="bg-gray-100 rounded-xl overflow-hidden shadow-lg">
-                    <div class="aspect-w-16 aspect-h-9 bg-green-800/10 flex items-center justify-center">
-                        <div class="text-center p-8">
-                            <i class="fas fa-mosque text-green-800 text-5xl mx-auto"></i>
-                            <h3 class="text-2xl font-bold text-green-800 mt-4">
-                                {{ $mosqueSettings->mosque_name ?? 'Al-Noor Mosque' }}</h3>
-                            <p class="text-gray-600 mt-2">Serving the community with dedication</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="mb-20 aos-init aos-animate" data-aos="fade-up">
-                <h3 class="text-2xl font-bold text-green-800 mb-8 text-center">Our Vision &amp; Mission</h3>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-green-50 p-8 rounded-xl border border-green-200">
-                        <div class="text-green-800 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" data-lucide="eye"
-                                class="lucide lucide-eye w-10 h-10">
-                                <path
-                                    d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0">
-                                </path>
-                                <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
-                        </div>
-                        <h4 class="text-xl font-bold text-green-800 mb-3">Our Vision</h4>
-                        <p class="text-gray-600">To be a beacon of Islamic values, fostering a compassionate and
-                            engaged
-                            Muslim community that contributes positively to society while maintaining strong faith and
-                            identity.</p>
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                    <div>
+                        <h3 class="text-2xl font-bold text-green-800 mb-4">Our History</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            {{ $about->history_paragraph1 }}
+                        </p>
                     </div>
-
-                    <div class="bg-green-50 p-8 rounded-xl border border-green-200">
-                        <div class="text-green-800 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" data-lucide="target"
-                                class="lucide lucide-target w-10 h-10">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <circle cx="12" cy="12" r="6"></circle>
-                                <circle cx="12" cy="12" r="2"></circle>
-                            </svg>
-                        </div>
-                        <h4 class="text-xl font-bold text-green-800 mb-3">Our Mission</h4>
-                        <p class="text-gray-600">To provide religious, educational, and social services that nurture
-                            spiritual growth, promote Islamic knowledge, build community bonds, and serve humanity
-                            regardless of faith or background.</p>
-                    </div>
-                </div>
-            </div>
-
-            @if ($leaders->isNotEmpty())
-                <div>
-                    <h3 class="text-2xl font-bold text-green-800 mb-8 text-center">Our Leadership</h3>
-                    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                        @foreach ($leaders as $leader)
-                            <div
-                                class="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl">
-                                @if ($leader->photo)
-                                    <img src="{{ asset('storage/' . $leader->photo) }}" alt="{{ $leader->name }}"
-                                        class="w-full h-48 object-cover">
-                                @else
-                                    <div class="bg-green-800 h-48 flex items-center justify-center">
-                                        <i class="fas fa-user text-yellow-300 text-4xl"></i>
-                                    </div>
-                                @endif
-                                <div class="p-6">
-                                    <h4 class="font-bold text-xl text-green-800">{{ $leader->name }}</h4>
-                                    <p class="text-yellow-600 font-medium">{{ $leader->designation }}</p>
-                                    <p class="text-gray-600 mt-2">
-                                        {{ \Illuminate\Support\Str::limit($leader->bio, 80) }}</p>
-                                </div>
+                    <div class="bg-gray-100 rounded-xl overflow-hidden shadow-lg">
+                        <div class="aspect-w-16 aspect-h-9 bg-green-800/10 flex items-center justify-center">
+                            <div class="text-center p-8">
+                                <i class="fas fa-mosque text-green-800 text-5xl mx-auto"></i>
+                                <h3 class="text-2xl font-bold text-green-800 mt-4">
+                                    {{ $mosqueSettings->mosque_name ?? 'Al-Noor Mosque' }}</h3>
+                                <p class="text-gray-600 mt-2"> {{ $about->history_paragraph2 }}
+                                </p>
                             </div>
-                        @endforeach
+                        </div>
                     </div>
                 </div>
-            @endif
-        </div>
-    </section>
 
+                <!-- Our Leadership -->
+                @if ($leaders->isNotEmpty())
+                    <div>
+                        <h3 class="text-2xl font-bold text-green-800 mb-8 text-center">Our Leadership</h3>
+                        <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                            @foreach ($leaders as $leader)
+                                <div
+                                    class="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl">
+                                    @if ($leader->photo)
+                                        <img src="{{ asset('storage/' . $leader->photo) }}"
+                                            alt="{{ $leader->name }}" class="w-full h-48 object-cover">
+                                    @else
+                                        <div class="bg-green-800 h-48 flex items-center justify-center">
+                                            <i class="fas fa-user text-yellow-300 text-4xl"></i>
+                                        </div>
+                                    @endif
+                                    <div class="p-6">
+                                        <h4 class="font-bold text-xl text-green-800">{{ $leader->name }}</h4>
+                                        <p class="text-yellow-600 font-medium">{{ $leader->designation }}</p>
+                                        <p class="text-gray-600 mt-2">
+                                            {{ \Illuminate\Support\Str::limit($leader->bio, 80) }}</p>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </section>
+    @endif
     <!-- Donation Section -->
     <section id="donate" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -8,10 +8,11 @@ use App\Models\Leader;
 use App\Models\Message;
 use App\Models\HomeBanner;
 use App\Models\PrayerTime;
+use App\Models\AboutMosque;
 use App\Models\GalleryItem;
 use App\Models\Announcement;
-use Illuminate\Http\Request;
 
+use Illuminate\Http\Request;
 use App\Models\MosqueSetting;
 use App\Models\MonthlyCollection;
 use Illuminate\Support\Facades\DB;
@@ -25,6 +26,7 @@ class WelcomeController extends Controller
             DB::connection()->getPdo();
 
             $homes = HomeBanner::all();
+            $abouts = AboutMosque::all();
             $prayerTimes = PrayerTime::first();
             $donors = Donor::where('status', 'active')->orderBy('amount', 'desc')->get();
             $announcements = Announcement::orderBy('id', 'desc')->take(8)->get();
@@ -61,6 +63,7 @@ class WelcomeController extends Controller
                 'homes',
                 'prayerTimes',
                 'donors',
+                'abouts',
                 'announcements',
                 'galleryItems',
                 'leaders',
