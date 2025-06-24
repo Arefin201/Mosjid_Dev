@@ -20,10 +20,10 @@ class MosqueSettingController extends Controller
         $validator = Validator::make($request->all(), [
             'mosqueName' => 'required|string|max:255',
             'contactPhone' => 'required|string|max:20',
-            'email' => 'required|email|max:255',
+            'email' => 'nullable|email|max:255',
             'address' => 'required|string|max:500',
             'footerMessage' => 'required|string',
-            'language' => 'required|in:en,bn,ar',
+            'language' => 'nullable|in:en,bn,ar',
         ]);
 
         if ($validator->fails()) {

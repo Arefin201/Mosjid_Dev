@@ -105,9 +105,9 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
 
     //About Sction Route
- Route::get('/about', [AboutMosqueController::class, 'edit'])->name('admin.about');
+    Route::get('/about', [AboutMosqueController::class, 'edit'])->name('admin.about');
     Route::put('/about', [AboutMosqueController::class, 'update'])->name('admin.about.update');
-    
+
     // profile All Route
     Route::view('/profile', 'admin.pages.profile.index')->name('admin.profile.index');
 

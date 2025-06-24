@@ -15,7 +15,7 @@ return new class extends Migration
              $table->id();
             $table->string('mosque_name');
             $table->string('contact_phone');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->text('address');
             $table->text('footer_message');
             $table->string('language', 10)->default('en');

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 22, 2025 at 03:01 PM
+-- Generation Time: Jun 24, 2025 at 12:47 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -1837,7 +1837,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('T6aIM6d55wneHa0TLyClEs6GMbr7RPOlWPMP6ZDH', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoibTlWWjNCNGhITEdOQTNpam50bW9qVDBGbFZ4Tk5xazRtNGlJYmh6WSI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czoyMToiaHR0cDovLzEyNy4wLjAuMTo4MDAwIjt9czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1745937281);
+('T6aIM6d55wneHa0TLyClEs6GMbr7RPOlWPMP6ZDH', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoibTlWWjNCNGhITEdOQTNpam50bW9qVDBGbFZ4Tk5xazRtNGlJYmh6WSI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czoyMToiaHR0cDovLzEyNy4wLjAuMTo4MDAwIjt9czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1745937281),
+('UeTqgMkojGZXDWmyaquiskBIIU8nmDk4jTJUImHN', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoibjFYR2FaWnRqZnN6TnlPY2VYRW1MSUhPZG8zTVhJVW5GcVpJTnNKZCI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czoyMToiaHR0cDovLzEyNy4wLjAuMTo4MDA4Ijt9czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwOC9sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1750697900);
 
 -- --------------------------------------------------------
 
@@ -2726,6 +2727,28 @@ USE `mosjid_db`;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `about_mosques`
+--
+
+CREATE TABLE `about_mosques` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `mosque_name` varchar(255) DEFAULT NULL,
+  `history_paragraph1` text DEFAULT NULL,
+  `history_paragraph2` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `about_mosques`
+--
+
+INSERT INTO `about_mosques` (`id`, `mosque_name`, `history_paragraph1`, `history_paragraph2`, `created_at`, `updated_at`) VALUES
+(1, 'Badda Al-Amin Jame Mosjid', 'Al-Noor Mosque was established in 1985 with a small group of dedicated community members. What began as a humble prayer space has grown into a vibrant Islamic center serving thousands of Muslims in our city.\r\n\r\nOver the years, we\'ve expanded our facilities to include a full-time Islamic school, community hall, and library. Our mosque has become a cornerstone of the Muslim community, providing spiritual guidance and social services to all.', 'Serving the community since 1985', '2025-06-24 10:22:32', '2025-06-24 10:31:17');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `announcements_tables`
 --
 
@@ -2745,10 +2768,8 @@ CREATE TABLE `announcements_tables` (
 --
 
 INSERT INTO `announcements_tables` (`id`, `title`, `date`, `category`, `description`, `event_time`, `created_at`, `updated_at`) VALUES
-(1, 'Eid al-Adha Celebration', '2025-06-07', 'event', 'Join us for Eid prayer and community gathering', '8:00 AM - 12:00 PM', '2025-06-18 13:40:50', '2025-06-18 13:40:50'),
-(2, 'Friday Prayer Change', '2025-06-30', 'general', 'Starting next week, Jumu\'ah prayer will begin at 1:30 PM instead of 1:15 PM due to summer timing.', 'June 12, 2025', '2025-06-18 13:44:00', '2025-06-18 13:44:00'),
-(3, '✅ User Profile & Management Section', '2025-06-14', 'ramadan', 'Complete admin profile management with avatar upload\r\nPassword change with security requirements\r\nGranular permission system for all sections\r\nNotification preferences', NULL, '2025-06-19 07:41:40', '2025-06-19 07:42:01'),
-(4, 'Ramadan Prayer Schedule', '2025-06-28', 'event', 'During the holy month of Ramadan, prayer times will be adjusted. Please check the updated schedule.', NULL, '2025-06-20 09:06:11', '2025-06-20 09:06:11');
+(1, 'Friday Prayer Change', '2025-07-04', 'general', 'Starting next week, Jumu\'ah prayer will begin at 1:30 PM instead of 1:15 PM due to summer timing.', NULL, NULL, '2025-06-24 10:33:29'),
+(2, 'Eid al-Adha Celebration', '2025-06-07', 'event', 'Join us for Eid prayer and community gathering', '8:00 AM - 12:00 PM', '2025-06-24 10:34:30', '2025-06-24 10:34:30');
 
 -- --------------------------------------------------------
 
@@ -2761,16 +2782,6 @@ CREATE TABLE `cache` (
   `value` mediumtext NOT NULL,
   `expiration` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `cache`
---
-
-INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
-('arefinmojumder8251@gmail.com|127.0.0.1', 'i:1;', 1750324592),
-('arefinmojumder8251@gmail.com|127.0.0.1:timer', 'i:1750324592;', 1750324592),
-('superadmin@gmail.com|127.0.0.1', 'i:1;', 1750513618),
-('superadmin@gmail.com|127.0.0.1:timer', 'i:1750513618;', 1750513618);
 
 -- --------------------------------------------------------
 
@@ -2801,14 +2812,6 @@ CREATE TABLE `contact_messages` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `contact_messages`
---
-
-INSERT INTO `contact_messages` (`id`, `name`, `email`, `phone`, `subject`, `message`, `created_at`, `updated_at`) VALUES
-(1, 'Azharul Islam', 'arefinmojumder825@gmail.com', '01640764896', 'General Inquiry', 'jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj', '2025-06-22 12:09:56', '2025-06-22 12:09:56'),
-(2, 'Azharul Islam', 'arefinmojumder825@gmail.com', '01640764896', 'Prayer Times', 'llllllllllllllllllllllllllllllllll               mmmmmmmmmmmmmm', '2025-06-22 12:10:13', '2025-06-22 12:10:13');
-
 -- --------------------------------------------------------
 
 --
@@ -2834,10 +2837,7 @@ CREATE TABLE `donors_tables` (
 --
 
 INSERT INTO `donors_tables` (`id`, `name`, `phone`, `email`, `amount`, `payment_method`, `status`, `last_paid`, `start_date`, `created_at`, `updated_at`) VALUES
-(1, 'Azharul Islam', '01640764896', 'arefinmojumder825@gmail.com', 5000.00, 'cash', 'active', NULL, '2025-06-01', '2025-06-18 09:44:47', '2025-06-18 09:44:47'),
-(14, 'Azharul Islam', '01640764896', 'Light@adminhasan', 1000.00, 'bank', 'inactive', NULL, '2025-06-01', '2025-06-18 09:45:34', '2025-06-18 09:45:34'),
-(16, 'Azharul Arefin', '01878091310', 'arefinmojumder825@gmail.com', 2000.00, 'cash', 'active', NULL, NULL, '2025-06-18 11:00:34', '2025-06-18 11:19:12'),
-(17, 'Arefin Mojumder', '01640764896', 'arefinmojumder825@gmail.com', 500.00, 'cash', 'active', NULL, NULL, '2025-06-20 07:21:32', '2025-06-20 07:21:32');
+(1, 'Azharul Islam', '01640764896', 'arefinmojumder825@gmail.com', 200.00, 'cash', 'active', NULL, '2025-06-01', '2025-06-24 10:31:36', '2025-06-24 10:31:36');
 
 -- --------------------------------------------------------
 
@@ -2878,8 +2878,8 @@ CREATE TABLE `gallery_items` (
 --
 
 INSERT INTO `gallery_items` (`id`, `title`, `description`, `type`, `event_date`, `image_path`, `is_featured`, `created_at`, `updated_at`) VALUES
-(3, 'onclick=\"return confirm(\'Are you sure?', 'onclick=\"return confirm(\'Are you sure?', 'prayer', '2025-06-25', 'gallery/L4yIhHGRVuYvfzpS02EJKKawtx4KhXX1nzWhVhUt.jpg', 0, '2025-06-19 07:32:05', '2025-06-19 07:32:28'),
-(4, 'How can I donate to the mosque?', 'You can donate through bKash, Nagad, or bank transfer. Check our donation section for details.', 'AAaa', '2025-06-26', 'gallery/1KjWQExAElbBgh7UWDUHFAh8l5RiOty46zgfZHhj.png', 0, '2025-06-19 07:37:17', '2025-06-19 07:37:17');
+(1, 'Friday Khutbah', 'Starting next week, Jumu\'ah prayer will begin at 1:30 PM instead of 1:15 PM due to summer timing.\r\n\r\nOpportunity to sponsor community iftar during Ramadan. Contact the office to participate.', 'event', '2025-07-04', 'gallery/2r83yakeeqmbLiypQbstGAf1mOTeOlNWGBThXkGy.jpg', 0, '2025-06-24 10:37:19', '2025-06-24 10:38:05'),
+(2, 'Eid al-Adha Celebration', 'Join us for Eid prayer and community gathering', 'Eid-Event', '2025-06-07', 'gallery/GDAS4CmjztpSwkMniNl0t9VO6Cibthjhk2QZICrI.jpg', 0, '2025-06-24 10:39:14', '2025-06-24 10:39:14');
 
 -- --------------------------------------------------------
 
@@ -2903,7 +2903,7 @@ CREATE TABLE `home_banners` (
 --
 
 INSERT INTO `home_banners` (`id`, `title`, `subtitle`, `button_text`, `button_link`, `banner_image`, `created_at`, `updated_at`) VALUES
-(1, 'Welcome to Badda Al-Amin Jame Mosjid', 'আমাদের মসজিদটি ১৯৮৫ সালে প্রতিষ্ঠিত হয়েছিল এবং তখন থেকে এটি আমাদের সম্প্রদায়ের আধ্যাত্মিক কেন্দ্র হিসেবে কাজ করে আসছে। আমরা ইসলামের শিক্ষা প্রচার, সম্প্রদায়ের উন্নয়ন এবং সামাজিক সেবা প্রদানে নিবেদিত।', 'Visit Us', '/', 'banners/YXEPkc2Q7v6nw80gGZaVE5XNa4EQAN4hL10SBQlJ.jpg', NULL, '2025-06-21 14:20:31');
+(1, 'Welcome to Al-Noor Mosque', 'A center for spiritual growth, community service, and Islamic education. Join us in prayer, learning, and serving humanity.', 'Visit Us', '/', 'banners/jpTzLJ4ZyC3NQdmqfkjnC73b6lRdMs6CoFx720ZI.jpg', NULL, '2025-06-24 10:30:15');
 
 -- --------------------------------------------------------
 
@@ -2964,8 +2964,7 @@ CREATE TABLE `leaders` (
 --
 
 INSERT INTO `leaders` (`id`, `name`, `designation`, `email`, `phone`, `photo`, `bio`, `order`, `created_at`, `updated_at`) VALUES
-(3, 'Azharul Islam', 'sssss', 'Light@adminhasan', '01640764896', 'leaders/ho1N5jiyzHgcOZyMAAzY6FHhBUmkD8NFp3ibTQsb.jpg', 'Community leader with a passion for youth development programs.', 2, '2025-06-19 04:57:38', '2025-06-19 04:57:38'),
-(5, 'Azharul Islam', 'Web Development 1', 'arefinmojumder8245@gmail.com', '01640764896', 'leaders/1750332407_6853f3f7de9d0.jpg', 'Community leader with a passion for youth development programs.', 4, '2025-06-19 05:26:47', '2025-06-19 05:30:28');
+(1, 'Azharul Islam', 'Web Development', 'arefinmojumder825@gmail.com', '01640764896', 'leaders/1750761312_685a7f6083b8b.jpg', NULL, 1, '2025-06-24 10:35:12', '2025-06-24 10:35:12');
 
 -- --------------------------------------------------------
 
@@ -3004,18 +3003,17 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '0001_01_01_000000_create_users_table', 1),
 (2, '0001_01_01_000001_create_cache_table', 1),
 (3, '0001_01_01_000002_create_jobs_table', 1),
-(4, '2025_06_17_112626_create_donors_tables', 2),
-(5, '2025_06_17_112644_create_prayer_times_tables', 2),
-(6, '2025_06_17_112701_create_announcements_tables', 2),
-(7, '2025_06_17_112721_create_gallery_tables', 2),
-(8, '2025_06_17_112734_create_messages_tables', 2),
-(9, '2025_06_17_112700_create_announcements_tables', 3),
-(10, '2025_06_19_063022_create_home_banners_table', 4),
-(11, '2025_06_19_101918_create_leaders_table', 5),
-(12, '2025_06_19_122720_create_gallery_items_table', 6),
-(13, '2025_06_20_010413_create_mosque_settings_table', 7),
-(14, '2025_06_22_012020_create_monthly_collections_table', 8),
-(15, '2025_06_22_175910_create_contact_messages_table', 9);
+(4, '2025_06_17_112626_create_donors_tables', 1),
+(5, '2025_06_17_112644_create_prayer_times_tables', 1),
+(6, '2025_06_17_112700_create_announcements_tables', 1),
+(7, '2025_06_17_112734_create_messages_tables', 1),
+(8, '2025_06_19_063022_create_home_banners_table', 1),
+(9, '2025_06_19_101918_create_leaders_table', 1),
+(10, '2025_06_19_122720_create_gallery_items_table', 1),
+(11, '2025_06_20_010413_create_mosque_settings_table', 1),
+(12, '2025_06_22_012020_create_monthly_collections_table', 1),
+(13, '2025_06_22_175910_create_contact_messages_table', 1),
+(14, '2025_06_24_122918_create_about_mosques_table', 1);
 
 -- --------------------------------------------------------
 
@@ -3038,12 +3036,7 @@ CREATE TABLE `monthly_collections` (
 --
 
 INSERT INTO `monthly_collections` (`id`, `collection_date`, `total_amount`, `category`, `notes`, `created_at`, `updated_at`) VALUES
-(1, '2025-01-01', 35000.00, 'monthly_chanda', NULL, '2025-06-21 21:05:09', '2025-06-21 21:05:09'),
-(2, '2025-02-01', 25000.00, 'zakat', NULL, '2025-06-21 21:08:52', '2025-06-21 21:08:52'),
-(3, '2025-03-01', 7000.00, 'fitrah', NULL, '2025-06-21 21:11:51', '2025-06-21 21:11:51'),
-(5, '2025-01-01', 5000.00, 'zakat', NULL, '2025-06-21 21:17:39', '2025-06-21 21:17:39'),
-(6, '2025-06-01', 8000.00, 'monthly_chanda', NULL, '2025-06-21 21:18:51', '2025-06-21 21:18:51'),
-(7, '2025-06-01', 2000.00, 'zakat', NULL, '2025-06-22 10:50:45', '2025-06-22 10:50:45');
+(1, '2025-06-01', 50000.00, 'monthly_chanda', NULL, '2025-06-24 10:35:38', '2025-06-24 10:35:38');
 
 -- --------------------------------------------------------
 
@@ -3055,7 +3048,7 @@ CREATE TABLE `mosque_settings` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `mosque_name` varchar(255) NOT NULL,
   `contact_phone` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
   `address` text NOT NULL,
   `footer_message` text NOT NULL,
   `language` varchar(10) NOT NULL DEFAULT 'en',
@@ -3068,7 +3061,7 @@ CREATE TABLE `mosque_settings` (
 --
 
 INSERT INTO `mosque_settings` (`id`, `mosque_name`, `contact_phone`, `email`, `address`, `footer_message`, `language`, `created_at`, `updated_at`) VALUES
-(1, 'Badda Al-Amin Jame Mosjid', '01640764896', 'arefinmojumder825@gmail.com', '123 Peace Avenue, Green Valley,  Dhaka 1212, Bangladesh', '© 2025 Al-Noor Mosque. All Rights Reserved.', 'en', '2025-06-19 19:14:23', '2025-06-22 10:07:05');
+(1, 'Badda Al-Amin Jame Mosjid', '01000000000', NULL, 'Badda,Hajigonj,Chandpur-3610', 'A beacon of faith, knowledge, and community service. Serving Muslims since 1985.', 'en', '2025-06-24 10:45:53', '2025-06-24 10:45:53');
 
 -- --------------------------------------------------------
 
@@ -3105,7 +3098,7 @@ CREATE TABLE `prayer_times_tables` (
 --
 
 INSERT INTO `prayer_times_tables` (`id`, `fajr`, `dhuhr`, `asr`, `maghrib`, `isha`, `jummah`, `created_at`, `updated_at`) VALUES
-(1, '04:46:00', '13:30:00', '17:15:00', '18:40:00', '20:30:00', '13:30:00', '2025-06-18 11:43:56', '2025-06-21 19:11:08');
+(1, '04:51:00', '13:30:00', '16:45:00', '18:20:00', '20:30:00', '13:30:00', '2025-06-24 10:23:39', '2025-06-24 10:32:08');
 
 -- --------------------------------------------------------
 
@@ -3127,8 +3120,9 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('1jvyZuRWO9QA2ugGStAl7V6c3LJkBkY4FBJpgfUL', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiaFYyak1Vczl3OWlWSHZueFZwZExRdFpkeEVGYktkdW9GaFJDaG1QZSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fX0=', 1750597049),
-('iAJHvmJahoDeN0JG59LL4yRsYrMfub8vPAstNTMe', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 Edg/137.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiMXJLQmNOSk1YVVhCUjN6ZGk4SkNxZ2JiSWNLR0dBcUVtVTlQd0RNUyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1750592522);
+('3GcMHEdCGGTqjOMk1n6MZovaT4krnlyA6KXsoeXJ', 3, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoickhsRkNheDdxeW81ZzNmSWVRSFZFUFU1aDlrTVN0TnRBRG5DcFp0aCI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjIxOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTozO30=', 1750761961),
+('Dm2SdnJLVWkQYO0Ho6ruKNRpTlFWg6104ggNIv7y', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiR2lLZmNUd1NvNWlQd1F4aVdPWDJqaWpiSlJ2TFlYNGEzbzRtNUFvSCI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozMzoiaHR0cDovLzEyNy4wLjAuMTo4MDAwL2FkbWluL2Fib3V0Ijt9czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9hYm91dCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1750760433),
+('FtutZvj6kSo4bDGgNap9XwzNvE5VzNjLatGOPXaa', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiRHRVRUJxTWdNMkZtWTVrMWFKaUtWbXpocHFVb0QyVEhDZzN6SmpBcyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1750760431);
 
 -- --------------------------------------------------------
 
@@ -3152,11 +3146,19 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Azharul Islam', 'arefinmojumder825@gmail.com', NULL, '$2y$12$XSPHuzXlOQimN/Kr0Ee4qe/qh6mBEAG0gjBmsK76LNU3BFg.cuJGy', 'ysrkiT8eyNQNGg6SjcJJNXVJOzzSq8jEoDEn4Xv4HIpOjkmqL9y3NAQKXKgz', '2025-06-16 12:03:24', '2025-06-17 04:12:11');
+(1, 'Admin User', 'admin@gmail.com', NULL, '$2y$12$hAkXVVifUvd.iCYDPntFDuUe7kEuyJOfWbPnzqfXJHSTYhS0IqSh2', NULL, '2025-06-24 10:20:00', '2025-06-24 10:20:00'),
+(2, 'Admin User', 'admin2@gmail.com', NULL, '$2y$12$YfLTWQOoluwgecCxCphmzuCfDGZqlEaexUp3Lm/q.WUIb2VKAJBfG', NULL, '2025-06-24 10:20:01', '2025-06-24 10:20:01'),
+(3, 'Admin User', 'arefinmojumder825@gmail.com', NULL, '$2y$12$T9ypJnOwgsF64Z3aoofTVuOCgw7HMrMNf0A1hLKALZC6lXTg/.5cK', 'zfVqsozXlE0qIMvlcmmaT2i0uPoF48o0b9D46vQoVZ3wrIhR3p9PkA0Lmaso', '2025-06-24 10:20:01', '2025-06-24 10:20:01');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `about_mosques`
+--
+ALTER TABLE `about_mosques`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `announcements_tables`
@@ -3282,22 +3284,28 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `about_mosques`
+--
+ALTER TABLE `about_mosques`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `announcements_tables`
 --
 ALTER TABLE `announcements_tables`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `contact_messages`
 --
 ALTER TABLE `contact_messages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `donors_tables`
 --
 ALTER TABLE `donors_tables`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -3309,7 +3317,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `gallery_items`
 --
 ALTER TABLE `gallery_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `home_banners`
@@ -3327,7 +3335,7 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `leaders`
 --
 ALTER TABLE `leaders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `messages_tables`
@@ -3339,13 +3347,13 @@ ALTER TABLE `messages_tables`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `monthly_collections`
 --
 ALTER TABLE `monthly_collections`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `mosque_settings`
@@ -3363,7 +3371,7 @@ ALTER TABLE `prayer_times_tables`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Database: `myapp_db`
 --
@@ -5338,7 +5346,7 @@ CREATE TABLE `pma__recent` (
 --
 
 INSERT INTO `pma__recent` (`username`, `tables`) VALUES
-('root', '[{\"db\":\"mosjid_db\",\"table\":\"contact_messages\"},{\"db\":\"mosjid_db\",\"table\":\"gallery_items\"},{\"db\":\"mosjid_db\",\"table\":\"monthly_collections\"},{\"db\":\"mosjid_db\",\"table\":\"announcements_tables\"},{\"db\":\"dalyexpense\",\"table\":\"users\"},{\"db\":\"mosjid_db\",\"table\":\"donors_tables\"},{\"db\":\"meal_management_db\",\"table\":\"users\"},{\"db\":\"mosjid_db\",\"table\":\"prayer_times_tables\"},{\"db\":\"mosjid_db\",\"table\":\"home_banners\"},{\"db\":\"mosjid_db\",\"table\":\"gallery_tables\"}]');
+('root', '[{\"db\":\"mosjid_db\",\"table\":\"mosque_settings\"},{\"db\":\"mosjid_db\",\"table\":\"home_banners\"},{\"db\":\"mosjid_db\",\"table\":\"cache_locks\"},{\"db\":\"mosjid_db\",\"table\":\"cache\"},{\"db\":\"mosjid_db\",\"table\":\"announcements_tables\"},{\"db\":\"mosjid_db\",\"table\":\"about_mosques\"},{\"db\":\"task_manager\",\"table\":\"tasks\"},{\"db\":\"task_manager\",\"table\":\"users\"},{\"db\":\"mosjid_db\",\"table\":\"contact_messages\"},{\"db\":\"mosjid_db\",\"table\":\"gallery_items\"}]');
 
 -- --------------------------------------------------------
 
@@ -5454,7 +5462,7 @@ CREATE TABLE `pma__userconfig` (
 --
 
 INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
-('root', '2025-06-22 12:13:09', '{\"Console\\/Mode\":\"collapse\"}');
+('root', '2025-06-24 10:45:14', '{\"Console\\/Mode\":\"collapse\"}');
 
 -- --------------------------------------------------------
 
@@ -5642,6 +5650,293 @@ ALTER TABLE `pma__pdf_pages`
 --
 ALTER TABLE `pma__savedsearches`
   MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- Database: `porter_api_db`
+--
+CREATE DATABASE IF NOT EXISTS `porter_api_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `porter_api_db`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cache`
+--
+
+CREATE TABLE `cache` (
+  `key` varchar(255) NOT NULL,
+  `value` mediumtext NOT NULL,
+  `expiration` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cache_locks`
+--
+
+CREATE TABLE `cache_locks` (
+  `key` varchar(255) NOT NULL,
+  `owner` varchar(255) NOT NULL,
+  `expiration` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `failed_jobs`
+--
+
+CREATE TABLE `failed_jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `uuid` varchar(255) NOT NULL,
+  `connection` text NOT NULL,
+  `queue` text NOT NULL,
+  `payload` longtext NOT NULL,
+  `exception` longtext NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jobs`
+--
+
+CREATE TABLE `jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `queue` varchar(255) NOT NULL,
+  `payload` longtext NOT NULL,
+  `attempts` tinyint(3) UNSIGNED NOT NULL,
+  `reserved_at` int(10) UNSIGNED DEFAULT NULL,
+  `available_at` int(10) UNSIGNED NOT NULL,
+  `created_at` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `job_batches`
+--
+
+CREATE TABLE `job_batches` (
+  `id` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `total_jobs` int(11) NOT NULL,
+  `pending_jobs` int(11) NOT NULL,
+  `failed_jobs` int(11) NOT NULL,
+  `failed_job_ids` longtext NOT NULL,
+  `options` mediumtext DEFAULT NULL,
+  `cancelled_at` int(11) DEFAULT NULL,
+  `created_at` int(11) NOT NULL,
+  `finished_at` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(255) NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(1, '0001_01_01_000000_create_users_table', 1),
+(2, '0001_01_01_000001_create_cache_table', 1),
+(3, '0001_01_01_000002_create_jobs_table', 1),
+(4, '2025_06_22_190018_create_tasks_table', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `password_reset_tokens`
+--
+
+CREATE TABLE `password_reset_tokens` (
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sessions`
+--
+
+CREATE TABLE `sessions` (
+  `id` varchar(255) NOT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `ip_address` varchar(45) DEFAULT NULL,
+  `user_agent` text DEFAULT NULL,
+  `payload` longtext NOT NULL,
+  `last_activity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sessions`
+--
+
+INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
+('rD5pjh2q8tlADl5FNcdHwf804WEAuOp5TdnodCoG', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoidFBGMUV0RFM2azJiaFpzVGF3NmlwS1VBazBkUWs3Z3dabU1lMzdweCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1750621012);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tasks`
+--
+
+CREATE TABLE `tasks` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` text DEFAULT NULL,
+  `status` enum('pending','completed') NOT NULL DEFAULT 'pending',
+  `priority` enum('low','medium','high') NOT NULL DEFAULT 'medium',
+  `category` enum('work','personal','education','health') DEFAULT NULL,
+  `deadline` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `progress` int(11) NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `cache`
+--
+ALTER TABLE `cache`
+  ADD PRIMARY KEY (`key`);
+
+--
+-- Indexes for table `cache_locks`
+--
+ALTER TABLE `cache_locks`
+  ADD PRIMARY KEY (`key`);
+
+--
+-- Indexes for table `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `jobs`
+--
+ALTER TABLE `jobs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `jobs_queue_index` (`queue`);
+
+--
+-- Indexes for table `job_batches`
+--
+ALTER TABLE `job_batches`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `password_reset_tokens`
+--
+ALTER TABLE `password_reset_tokens`
+  ADD PRIMARY KEY (`email`);
+
+--
+-- Indexes for table `sessions`
+--
+ALTER TABLE `sessions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `sessions_user_id_index` (`user_id`),
+  ADD KEY `sessions_last_activity_index` (`last_activity`);
+
+--
+-- Indexes for table `tasks`
+--
+ALTER TABLE `tasks`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tasks_user_id_foreign` (`user_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `jobs`
+--
+ALTER TABLE `jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tasks`
+--
+ALTER TABLE `tasks`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tasks`
+--
+ALTER TABLE `tasks`
+  ADD CONSTRAINT `tasks_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 --
 -- Database: `pos`
 --
@@ -6273,7 +6568,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('aC9SldLkb6yxeuFXzqYJJ1c9BJRlFVNxoSpS9PX7', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiRklGcngyWVhUZVdZQlBKc1dlWDVFaUZZUk4xVDZYNXNkOWdnbkdSaSI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozMToiaHR0cDovLzEyNy4wLjAuMTo4MDAwL2Rhc2hib2FyZCI7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjI3OiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvbG9naW4iO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1748670553);
+('aC9SldLkb6yxeuFXzqYJJ1c9BJRlFVNxoSpS9PX7', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiRklGcngyWVhUZVdZQlBKc1dlWDVFaUZZUk4xVDZYNXNkOWdnbkdSaSI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozMToiaHR0cDovLzEyNy4wLjAuMTo4MDAwL2Rhc2hib2FyZCI7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjI3OiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvbG9naW4iO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1748670553),
+('IMVxZ71liKRyiG0WHOBuMDX5smN4FRXCvtcRNMrt', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiU3BUQnRtR2VubmZXYnlHUlpzcHZGNWwyM2JsZlBWMGJCMExWVkFSQiI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozMToiaHR0cDovLzEyNy4wLjAuMTo4MDA4L2Rhc2hib2FyZCI7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjMxOiJodHRwOi8vMTI3LjAuMC4xOjgwMDgvZGFzaGJvYXJkIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9', 1750697400);
 
 -- --------------------------------------------------------
 
@@ -6292,6 +6588,13 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `role` enum('admin','cashier') NOT NULL DEFAULT 'cashier'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `role`) VALUES
+(1, 'Azharul Islam', 'superadmin@gmail.com', NULL, '$2y$12$/tfhvIX6ypFF/g4cThvy9uwT2MlczNg4XZBVPBEbzJsIFGezE8tY6', NULL, '2025-06-23 10:49:53', '2025-06-23 10:49:53', 'cashier');
 
 --
 -- Indexes for dumped tables
@@ -6461,7 +6764,7 @@ ALTER TABLE `sale_details`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -6886,6 +7189,253 @@ ALTER TABLE `invoice_products`
 ALTER TABLE `products`
   ADD CONSTRAINT `products_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categorys` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `products_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE;
+--
+-- Database: `task_manager`
+--
+CREATE DATABASE IF NOT EXISTS `task_manager` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `task_manager`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(255) NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(1, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(2, '2025_06_22_065601_create_users_table', 1),
+(3, '2025_06_23_161855_create_tasks_table', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `personal_access_tokens`
+--
+
+CREATE TABLE `personal_access_tokens` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tokenable_type` varchar(255) NOT NULL,
+  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `token` varchar(64) NOT NULL,
+  `abilities` text DEFAULT NULL,
+  `last_used_at` timestamp NULL DEFAULT NULL,
+  `expires_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tasks`
+--
+
+CREATE TABLE `tasks` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` text DEFAULT NULL,
+  `deadline` datetime NOT NULL,
+  `category` enum('work','personal','education','health') NOT NULL DEFAULT 'work',
+  `priority` enum('low','medium','high') NOT NULL DEFAULT 'medium',
+  `status` enum('pending','completed') NOT NULL DEFAULT 'pending',
+  `progress` tinyint(3) UNSIGNED NOT NULL DEFAULT 0,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tasks`
+--
+
+INSERT INTO `tasks` (`id`, `user_id`, `title`, `description`, `deadline`, `category`, `priority`, `status`, `progress`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Eaque voluptates tenetur quam nostrum magni omnis et.', 'Ipsa voluptatibus eum praesentium ut. Eos esse repellendus occaecati ut. Exercitationem ab illo facilis deserunt nulla perferendis.', '2025-07-01 19:15:45', 'personal', 'medium', 'pending', 65, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(2, 1, 'Porro sit sapiente neque odio unde molestias.', 'Autem fugit debitis fugit autem. Perspiciatis sapiente delectus ipsa blanditiis optio quae quo. Possimus voluptatibus asperiores aspernatur recusandae.', '2025-07-01 19:15:45', 'personal', 'medium', 'pending', 65, '2025-06-23 13:34:05', '2025-06-23 13:15:45', '2025-06-23 13:34:05'),
+(3, 1, 'Ratione velit repudiandae dolor animi.', 'Qui ea velit officia id. Aut ipsum aspernatur placeat aperiam deleniti possimus dignissimos quos. Ipsam eveniet molestias cum distinctio autem. Esse nesciunt ad autem ea.', '2025-07-01 19:15:45', 'personal', 'medium', 'pending', 65, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(4, 1, 'Sunt a velit rerum.', 'Expedita provident enim possimus beatae. In mollitia sit commodi et sunt necessitatibus possimus. Accusantium id adipisci sunt ex.', '2025-07-01 19:15:45', 'personal', 'medium', 'pending', 65, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(5, 1, 'Est tempore blanditiis in dolor.', 'Quis necessitatibus sed aperiam quisquam libero. Nesciunt omnis optio libero voluptatibus aut. Architecto unde nihil dignissimos consectetur aut. Exercitationem est iure nihil eum nobis porro consequatur. Ipsa fuga id veritatis omnis quia ut.', '2025-07-01 19:15:45', 'personal', 'medium', 'pending', 65, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(6, 1, 'Autem voluptatem et eligendi repellat quia qui.', 'Dicta at dolores qui sit est nisi ipsum. Molestiae qui officiis quia est repellendus aut non. Minus sapiente earum exercitationem eveniet fuga aut quia dolorem.', '2025-07-01 19:15:45', 'personal', 'medium', 'pending', 65, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(7, 1, 'Necessitatibus suscipit temporibus quia qui quia et odio id.', 'Veniam nihil error quis omnis. Adipisci est excepturi libero in ut et dolorem occaecati. Et molestiae dolorum est fugit et.', '2025-07-01 19:15:45', 'personal', 'medium', 'pending', 65, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(8, 1, 'Soluta tempora odit magni.', 'Et quas laudantium ut est aut possimus. Et expedita eos totam corrupti vitae asperiores consequatur. Occaecati omnis dignissimos distinctio ducimus. Cumque quo harum sed tenetur.', '2025-07-01 19:15:45', 'personal', 'medium', 'pending', 65, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(9, 1, 'Quo quae maxime qui est odio fugit.', 'Nulla dolore maxime qui voluptatem. Deserunt assumenda quam corrupti nobis nisi dicta assumenda voluptatem. Fuga occaecati tempore inventore incidunt sint qui. Aut nobis quaerat nam in maxime laborum quia.', '2025-07-01 19:15:45', 'personal', 'medium', 'pending', 65, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(10, 1, 'Ea eaque nihil dolor modi corporis velit et ex.', 'Aperiam qui accusamus voluptatem ea aut minus qui. Perspiciatis cupiditate et eum ab incidunt. Voluptatem corporis sit facere cupiditate eaque incidunt. Sint corporis id consequatur autem tempore.', '2025-07-01 19:15:45', 'personal', 'medium', 'pending', 65, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(11, 1, 'Eos repellendus harum modi officia repellat vero.', 'Possimus rerum id libero aliquam ut. Veniam nulla perferendis sint quis. Ut ullam voluptatum nam quia.', '2025-07-01 19:15:45', 'personal', 'medium', 'pending', 65, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(12, 1, 'Quisquam quo omnis expedita dolorem rerum porro.', 'Consequatur dicta ipsam omnis temporibus ut tempore beatae rerum. Quibusdam ex velit fugit. Modi adipisci neque et odio et repellendus impedit. Sed ut at qui eum.', '2025-07-01 19:15:45', 'personal', 'medium', 'pending', 65, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(13, 1, 'Ut debitis autem dolores veritatis debitis ab necessitatibus.', 'Tenetur voluptatem soluta repudiandae dolor et. Illo quia alias sed magnam earum vitae. Provident esse porro ipsam sunt cum. Impedit nihil assumenda soluta. Eum sed veritatis est non qui quibusdam aut eum.', '2025-07-01 19:15:45', 'personal', 'medium', 'pending', 65, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(14, 1, 'Quisquam ut saepe facere numquam nisi.', 'Animi debitis earum provident nemo facilis. Explicabo aperiam illo nulla dolore quam veritatis voluptas. Reiciendis perspiciatis in deleniti sunt nesciunt qui consequuntur suscipit.', '2025-07-01 19:15:45', 'personal', 'medium', 'pending', 65, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(15, 1, 'Repellendus et officia enim ab.', 'Quia asperiores non optio non qui magni. Veritatis perspiciatis eum consequatur ut aut. Non est asperiores corporis sed labore voluptatum aut. Laudantium molestiae repudiandae itaque praesentium dolorem quidem quaerat.', '2025-07-01 19:15:45', 'personal', 'medium', 'pending', 65, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(16, 2, 'Accusantium nulla magnam occaecati at.', 'Ratione unde voluptates est ratione. Ipsam illo veritatis voluptatibus voluptas harum fugiat. Iste incidunt sequi doloremque doloremque suscipit molestiae. Nihil et vitae ex impedit sunt ratione.', '2025-07-10 19:15:45', 'health', 'low', 'completed', 61, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(17, 2, 'Deserunt exercitationem consectetur mollitia omnis quae consequatur.', 'Aut itaque quaerat quam esse. Dolor vel accusamus vitae nihil culpa. Libero reprehenderit autem itaque sed atque. Aut tenetur veniam sit repellat.', '2025-07-10 19:15:45', 'health', 'low', 'completed', 61, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(18, 2, 'Sunt fuga aut ipsum adipisci et numquam.', 'Libero enim quidem quia quos. Rerum illo consequatur voluptatem aut modi.', '2025-07-10 19:15:45', 'health', 'low', 'completed', 61, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(19, 2, 'Exercitationem iure quod velit quia.', 'Sit voluptatem atque non totam porro neque. Molestiae ullam nostrum accusamus quae iure omnis repudiandae et. Dolorem velit culpa sed omnis et.', '2025-07-10 19:15:45', 'health', 'low', 'completed', 61, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(20, 2, 'Sit harum reiciendis atque consequatur.', 'Laborum aperiam voluptatem laboriosam ad architecto at. Recusandae consequuntur quis consequatur qui reiciendis iusto qui quam.', '2025-07-10 19:15:45', 'health', 'low', 'completed', 61, '2025-06-23 13:35:56', '2025-06-23 13:15:45', '2025-06-23 13:35:56'),
+(21, 2, 'Possimus est ab corrupti quia animi rerum.', 'Molestiae voluptas maxime magni commodi. Consequatur vel nulla sunt. Recusandae quis voluptatibus dicta voluptas et voluptas. Iure omnis tenetur est cupiditate velit sunt accusamus.', '2025-07-10 19:15:45', 'health', 'low', 'completed', 61, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(22, 2, 'Nihil voluptas expedita omnis eveniet molestias.', 'Adipisci praesentium eaque quod quis velit. Dolorum cupiditate tempore nam quaerat totam nisi. Vitae minus dicta at fugit. Molestias delectus dolore sed magni.', '2025-07-10 19:15:45', 'health', 'low', 'completed', 61, '2025-06-23 13:38:31', '2025-06-23 13:15:45', '2025-06-23 13:38:31'),
+(23, 2, 'Ut laborum libero officia doloremque.', 'Vitae sit maxime sed et sit est. Omnis illo cumque suscipit. Labore est commodi unde est. Assumenda placeat sint quam dolores quidem necessitatibus.', '2025-07-10 19:15:45', 'health', 'low', 'completed', 61, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(24, 2, 'Eius quia minus molestiae.', 'Id velit rerum et molestias. Amet fugit distinctio consequatur et facilis. Vel ad sit quas est consequatur.', '2025-07-10 19:15:45', 'health', 'low', 'completed', 61, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(25, 2, 'Rerum nobis at ut necessitatibus.', 'Unde quo quos dolor iure non. Veritatis enim qui nobis occaecati blanditiis tenetur. Cupiditate eum repellat voluptate delectus corporis maxime.', '2025-07-10 19:15:45', 'health', 'low', 'completed', 61, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(26, 2, 'Vel tenetur temporibus numquam ratione.', 'Quia voluptas labore omnis saepe. Ut libero in accusantium excepturi dicta odio. Similique eius corporis quia sed ea nostrum iure autem. Officiis consequuntur est sunt dolorum similique quaerat veniam.', '2025-07-10 19:15:45', 'health', 'low', 'completed', 61, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(27, 2, 'Cupiditate laborum dolor vero nisi.', 'A tempore non aspernatur. Cumque culpa ducimus ut odit ipsam. Minus neque veritatis sint aut. Voluptatum nobis repellendus nemo tenetur vel non. Amet modi animi excepturi eum praesentium optio.', '2025-07-10 19:15:45', 'health', 'low', 'completed', 61, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(28, 2, 'Esse veritatis rerum consequatur unde sed quia.', 'Iure officia repellat esse. Nulla repellat beatae incidunt quae deleniti et. Ratione enim quod non rem. Illum commodi sunt voluptate praesentium.', '2025-07-10 19:15:45', 'health', 'low', 'completed', 61, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(29, 2, 'Ad laboriosam quam ipsam mollitia.', 'Repudiandae quia aut ut dolorum quo. Sit autem aliquam mollitia ut. Et voluptatem molestias dicta voluptatem possimus laudantium tenetur. Quia aut nulla ad sint autem nihil magni.', '2025-07-10 19:15:45', 'health', 'low', 'completed', 61, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(30, 2, 'Fuga hic et sed veniam.', 'Fugiat dolorem ratione veritatis repudiandae odio. Eum sint reiciendis corporis impedit quia natus quia. Et consectetur autem enim sed sed dolores.', '2025-07-10 19:15:45', 'health', 'low', 'completed', 61, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(31, 3, 'Doloremque illo nulla in et ratione sint aperiam.', 'Ut quia repellat similique ut itaque vel. Et sint rerum ipsam in deserunt qui sint quis. Suscipit eos quibusdam quo. Eius nihil ab aut quam corporis nobis.', '2025-06-30 19:15:45', 'work', 'high', 'pending', 79, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(32, 3, 'Minima in quis dolor.', 'In optio rerum aut. Animi rem possimus nobis omnis voluptas. Molestias est sit atque officiis voluptatum omnis eaque eligendi. Dolor beatae odio dolor illo molestiae id est ut.', '2025-06-30 19:15:45', 'work', 'high', 'pending', 79, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(33, 3, 'Minus quod voluptas cupiditate nobis.', 'Vero autem debitis porro corrupti. Consequuntur culpa nobis explicabo eligendi distinctio. Autem et quidem quia ut. Porro quis dolor et sit veritatis temporibus officiis.', '2025-06-30 19:15:45', 'work', 'high', 'pending', 79, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(34, 3, 'Explicabo odio id nihil quaerat ratione eos officiis.', 'Repudiandae inventore et sit reprehenderit rem suscipit molestiae. Unde aperiam aspernatur dolorem aspernatur aperiam velit nobis. Aut nulla rerum earum ad. Odio ipsa impedit non occaecati.', '2025-06-30 19:15:45', 'work', 'high', 'pending', 79, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(35, 3, 'Omnis eaque nobis ut aspernatur.', 'A excepturi assumenda ex explicabo nam sit. Iste sunt ad ducimus consequatur veritatis earum tempora. Non vel repellendus ut eum provident consectetur.', '2025-06-30 19:15:45', 'work', 'high', 'pending', 79, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(36, 3, 'Dolorum nisi dolorem eum quae laboriosam.', 'Quaerat dolores et ut. Magnam et consectetur commodi ut pariatur iusto totam. Occaecati ea sapiente molestias illum. Consectetur recusandae porro minus qui nam.', '2025-06-30 19:15:45', 'work', 'high', 'pending', 79, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(37, 3, 'Ut ea omnis sapiente et quaerat accusamus iusto.', 'Excepturi at iusto repudiandae perspiciatis perspiciatis facere magni quia. Excepturi non sed aliquam incidunt aut. Eligendi et reprehenderit velit officia porro illum voluptas.', '2025-06-30 19:15:45', 'work', 'high', 'pending', 79, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(38, 3, 'Est illo facilis ducimus fuga maiores sunt quo qui.', 'Veritatis consectetur molestias earum eligendi. Incidunt distinctio dolorum ducimus quaerat. Alias nobis cumque itaque et. Sed dolor excepturi libero accusamus.', '2025-06-30 19:15:45', 'work', 'high', 'pending', 79, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(39, 3, 'Ut voluptatem molestiae tempore.', 'Ipsa dolore exercitationem deleniti suscipit ut. Dignissimos placeat neque saepe possimus velit. Molestias est error explicabo quidem vitae consequatur dolore.', '2025-06-30 19:15:45', 'work', 'high', 'pending', 79, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(40, 3, 'At libero laudantium quis et aliquid quis totam qui.', 'Nam qui rerum qui et. Voluptatem blanditiis quisquam eius enim eos. Beatae consequatur ut magnam tempora dolorem.', '2025-06-30 19:15:45', 'work', 'high', 'pending', 79, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(41, 3, 'Ullam labore ab quia corrupti fuga.', 'Dolorem unde explicabo accusamus aperiam nam minus. Omnis consequuntur voluptates dolor eos sed qui ad. Distinctio fugiat nihil voluptatum nemo.', '2025-06-30 19:15:45', 'work', 'high', 'pending', 79, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(42, 3, 'Rerum quod in consectetur aut non animi.', 'Excepturi ullam soluta exercitationem sint ea suscipit voluptates molestias. Maxime placeat enim id vel qui earum. Praesentium est est ut doloribus. Dolorem quaerat consequuntur voluptatum exercitationem.', '2025-06-30 19:15:45', 'work', 'high', 'pending', 79, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(43, 3, 'Sed dolore qui ut est natus.', 'Laudantium quasi harum et sed rem. Dolorem enim quam asperiores sit suscipit. Quia provident dignissimos est libero quaerat.', '2025-06-30 19:15:45', 'work', 'high', 'pending', 79, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(44, 3, 'Quia omnis consequuntur consequatur et et et.', 'Voluptate blanditiis ut omnis. Ducimus qui facere dolorum at et ut culpa.', '2025-06-30 19:15:45', 'work', 'high', 'pending', 79, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(45, 3, 'Nostrum dolor sit nostrum enim ut.', 'Dolores dolorem cumque est facere. Ullam beatae optio ducimus nihil. Ratione dolorem quae distinctio eligendi. Aspernatur et et error quaerat. Quae consequuntur et tempora facere placeat eum minima.', '2025-06-30 19:15:45', 'work', 'high', 'pending', 79, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(46, 4, 'Eligendi sint ut error omnis harum labore.', 'Architecto beatae at sed eum. Est fugiat occaecati accusantium vel. Blanditiis est est qui aut inventore quibusdam odit. Sequi nemo qui non necessitatibus ut fugiat. Autem dignissimos perferendis tempore magni et consectetur beatae.', '2025-07-05 19:15:45', 'health', 'high', 'completed', 0, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(47, 4, 'Quasi rerum aperiam molestiae veniam.', 'Officiis ea molestiae impedit labore odit consequuntur. Illum nostrum consequatur aut ea. Tenetur dolor vel qui reiciendis quia. Quia cum quasi cumque aut veniam explicabo nihil odit.', '2025-07-05 19:15:45', 'health', 'high', 'completed', 0, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(48, 4, 'Tempora nesciunt accusantium eaque voluptatem fugit.', 'Quasi assumenda maiores aut sunt necessitatibus repudiandae velit. Itaque vel doloribus quaerat. Dignissimos iste culpa maiores ipsum adipisci omnis optio non. Ab labore debitis possimus porro. Accusamus qui qui doloribus optio.', '2025-07-05 19:15:45', 'health', 'high', 'completed', 0, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(49, 4, 'Exercitationem ab culpa fugit ad.', 'Cum dolore molestiae enim ea quia. Fugit dolores necessitatibus quibusdam ea enim. Nam quos unde quia quidem illum expedita. Consectetur et est autem qui voluptas. Veniam recusandae sunt quaerat sed vel recusandae.', '2025-07-05 19:15:45', 'health', 'high', 'completed', 0, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(50, 4, 'Culpa voluptatum alias voluptatem velit voluptas.', 'Culpa sunt quis voluptatem autem voluptatem laboriosam aperiam repellendus. Ratione architecto sint voluptas. Facere quo cum dolores quisquam.', '2025-07-05 19:15:45', 'health', 'high', 'completed', 0, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(51, 4, 'Ut consequatur nam eos et.', 'Modi suscipit dolorum quo quia. Qui maiores harum voluptatum illum voluptatibus. A voluptatem incidunt beatae atque et. Maiores earum odio odio aut architecto soluta itaque. Laborum est sed laboriosam alias quam.', '2025-07-05 19:15:45', 'health', 'high', 'completed', 0, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(52, 4, 'Porro deleniti ex laudantium iste sint.', 'Autem debitis modi sunt est. Commodi dolorem et omnis sunt sunt ex. Nam dicta et mollitia dolores qui nobis vel.', '2025-07-05 19:15:45', 'health', 'high', 'completed', 0, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(53, 4, 'Deleniti quisquam voluptatum deleniti pariatur non provident.', 'Quas pariatur illum ut quo sit est. Sequi odit unde et aut. Autem dolorem officiis eum nihil est ut. Exercitationem non ut nostrum natus id delectus.', '2025-07-05 19:15:45', 'health', 'high', 'completed', 0, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(54, 4, 'Cum unde officia nisi perspiciatis aperiam accusamus laboriosam.', 'Amet aut voluptatem ipsa exercitationem quisquam. Deleniti adipisci quis ex et voluptatem et. Aut illo laborum dolore eum. Maxime quasi esse sunt.', '2025-07-05 19:15:45', 'health', 'high', 'completed', 0, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(55, 4, 'Quisquam ipsa omnis qui sapiente porro minima officiis.', 'Sequi officiis beatae eum et veritatis perspiciatis sit. Molestias assumenda voluptas ut repellat non est. Omnis soluta quia sapiente rerum qui voluptates. Quidem molestias non id voluptate repellendus qui blanditiis.', '2025-07-05 19:15:45', 'health', 'high', 'completed', 0, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(56, 4, 'Consequatur id ea quibusdam magnam consequatur a.', 'Qui deserunt aut praesentium libero et ut. Nesciunt aut placeat repellat fugiat rerum exercitationem voluptatem. Repellat perferendis illum quia. Unde corrupti illo in in harum corrupti est harum.', '2025-07-05 19:15:45', 'health', 'high', 'completed', 0, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(57, 4, 'Inventore quia eveniet id et id sed quaerat.', 'Delectus et aut voluptatem quia voluptas. Qui cupiditate expedita tempore et inventore est. Facilis ratione explicabo non repellendus. Provident iure quos ea fuga quis. Ex pariatur itaque rerum est culpa rem debitis et.', '2025-07-05 19:15:45', 'health', 'high', 'completed', 0, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(58, 4, 'Distinctio reprehenderit rerum a ex.', 'Consequuntur unde laboriosam et dolorum voluptatem. Quas amet quos id exercitationem sint illum.', '2025-07-05 19:15:45', 'health', 'high', 'completed', 0, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(59, 4, 'Enim omnis qui tenetur quae commodi.', 'Sapiente nemo ut saepe aut voluptatem. Rerum eveniet accusamus est voluptates aliquam. Qui illo exercitationem quas repellat rerum.', '2025-07-05 19:15:45', 'health', 'high', 'completed', 0, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(60, 4, 'Quidem nisi harum dignissimos hic.', 'Ipsum esse est voluptatem porro. Non placeat eligendi dolorum qui enim. Rerum ratione beatae aut veniam. Ea dolorem ab eaque sunt voluptatem eveniet accusamus.', '2025-07-05 19:15:45', 'health', 'high', 'completed', 0, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(61, 5, 'Dignissimos voluptate deserunt dolorem ducimus pariatur quos molestiae.', 'Quae sapiente dolores et sequi culpa earum facere. Tempore et qui magni. Non unde cumque odio eaque.', '2025-07-03 19:15:45', 'personal', 'low', 'completed', 36, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(62, 5, 'Non ab commodi ea.', 'Vero vitae ut voluptatem quo vitae ipsam. Qui et praesentium quos qui placeat deserunt sed.', '2025-07-03 19:15:45', 'personal', 'low', 'completed', 36, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(63, 5, 'Repellat aut voluptatibus placeat optio minima.', 'Ea rerum sit distinctio sint saepe. Repellat ut odio impedit cum est deleniti iste. Accusamus quibusdam impedit molestias dolores explicabo illo. Debitis hic id et voluptas.', '2025-07-03 19:15:45', 'personal', 'low', 'completed', 36, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(64, 5, 'Et voluptas ullam rem et.', 'Quia harum dolor repellendus quaerat qui. Officia in deserunt et reprehenderit consectetur rerum molestiae. Enim enim ea corrupti omnis ut. At pariatur facere aspernatur tenetur harum. Et possimus velit laudantium aperiam.', '2025-07-03 19:15:45', 'personal', 'low', 'completed', 36, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(65, 5, 'Aperiam voluptatem nulla totam explicabo enim eveniet consequuntur nostrum.', 'Id dolorem ut suscipit voluptatem cumque aut doloribus. Velit est soluta sed tenetur aut deleniti omnis. Eum aut voluptatem magni eum veniam sunt. Voluptatem non quos quo mollitia id.', '2025-07-03 19:15:45', 'personal', 'low', 'completed', 36, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(66, 5, 'Non pariatur quas nihil omnis suscipit dolorum.', 'Dolor expedita et natus sequi voluptates ut. Et et optio corrupti eos. Nihil quis dignissimos ullam laudantium. Ut animi impedit ex natus ut.', '2025-07-03 19:15:45', 'personal', 'low', 'completed', 36, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(67, 5, 'At quasi porro nemo expedita molestiae.', 'Laudantium tempore numquam corrupti quod non sit sint. Nisi eum pariatur recusandae sed. Voluptatum eos autem officia sed repellat voluptatem. Ab ratione voluptatem et dolore quasi vero.', '2025-07-03 19:15:45', 'personal', 'low', 'completed', 36, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(68, 5, 'Et possimus et minima est quia voluptates.', 'Ipsa modi voluptas voluptatem vel ut est. Aut nostrum nostrum similique earum. Et enim similique molestias quaerat. Suscipit eligendi architecto quis pariatur magnam praesentium.', '2025-07-03 19:15:45', 'personal', 'low', 'completed', 36, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(69, 5, 'Velit vel vel quo distinctio natus omnis debitis.', 'Odio voluptas qui ex id sint ut rerum atque. Itaque autem minus omnis aut minus asperiores cum autem. Eveniet rerum qui enim deleniti quia dignissimos cupiditate nobis. Eum reprehenderit non consequatur sit quo.', '2025-07-03 19:15:45', 'personal', 'low', 'completed', 36, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(70, 5, 'Illum inventore quam mollitia laudantium doloribus ut.', 'Libero aut nulla consequatur quos repellat dolorem aut. Temporibus excepturi voluptatem molestiae dolorem aut sit omnis. Ut sed quia dolor reiciendis.', '2025-07-03 19:15:45', 'personal', 'low', 'completed', 36, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(71, 5, 'Soluta laborum sit nemo dignissimos sint ab.', 'Nihil corrupti qui vel consectetur aliquam non soluta. Et in error expedita sunt et. Non rerum aut voluptas eveniet ea illum.', '2025-07-03 19:15:45', 'personal', 'low', 'completed', 36, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(72, 5, 'Inventore quo quod necessitatibus natus cum dicta quisquam.', 'Unde libero et dicta. Fugit expedita est dolores. Eaque quidem aliquid laudantium et reprehenderit reiciendis harum sint. At assumenda officiis cupiditate.', '2025-07-03 19:15:45', 'personal', 'low', 'completed', 36, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(73, 5, 'Et vitae molestias tempora illo.', 'Quisquam consequatur ut magni omnis inventore. Exercitationem minus modi repudiandae voluptate alias libero asperiores. Eveniet qui autem exercitationem voluptatem consequatur dolore ex.', '2025-07-03 19:15:45', 'personal', 'low', 'completed', 36, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(74, 5, 'Perspiciatis laboriosam inventore eaque veniam et.', 'Et est sed similique veniam libero sapiente. Repellendus vel molestias mollitia praesentium fuga aut. Et accusantium omnis soluta veniam sed quidem eligendi.', '2025-07-03 19:15:45', 'personal', 'low', 'completed', 36, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(75, 5, 'Non iure a qui minima perspiciatis dolor ea nobis.', 'Ut quis delectus facere nulla expedita. Sapiente minima in sint aperiam temporibus in. Labore est fuga cupiditate dolore.', '2025-07-03 19:15:45', 'personal', 'low', 'completed', 36, NULL, '2025-06-23 13:15:45', '2025-06-23 13:15:45');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `profile_image` varchar(255) DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `profile_image`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Wilmer Krajcik', 'ebba93@example.net', '2025-06-23 13:15:45', NULL, '$2y$10$ulIJhIevfJOl.KGrn/6w9uyzWewg/vRDY5XCrMnGxVt9maq6qQOLq', '5ZZ7HtVbNk', '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(2, 'Jerome Medhurst', 'van.boehm@example.com', '2025-06-23 13:15:45', NULL, '$2y$10$fKRbWKWBiLgg3PN4TTyb6.5RWSG3b0/Z4YPhb/2SIOUMh4K1tNlQu', 'BvqOxXrmCL', '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(3, 'Carroll Ankunding', 'friedrich.leffler@example.com', '2025-06-23 13:15:45', NULL, '$2y$10$qt2ATutwd.UpcvOMUMtwbOMBFbNRIqAf2DEXQ0/u26REwKmDkNKlO', 'j01HymassH', '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(4, 'Miss Annabel Barrows MD', 'ckirlin@example.net', '2025-06-23 13:15:45', NULL, '$2y$10$582lQFJG6owTNCRP40A8h.sBPeVJKFdwHwCnD8z8CAP7clmi5HqQ6', '8lpFvFFEsA', '2025-06-23 13:15:45', '2025-06-23 13:15:45'),
+(5, 'Drew Gaylord I', 'lilliana31@example.com', '2025-06-23 13:15:45', NULL, '$2y$10$1Y4o6rG3WonMXsZV7genJ.2DCz7fPYuiiHcNV5eNehFqr6MkOMbkW', 'iEIFyMripV', '2025-06-23 13:15:45', '2025-06-23 13:15:45');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
+  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
+
+--
+-- Indexes for table `tasks`
+--
+ALTER TABLE `tasks`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tasks_user_id_foreign` (`user_id`),
+  ADD KEY `tasks_status_deadline_index` (`status`,`deadline`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tasks`
+--
+ALTER TABLE `tasks`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tasks`
+--
+ALTER TABLE `tasks`
+  ADD CONSTRAINT `tasks_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 --
 -- Database: `test`
 --
