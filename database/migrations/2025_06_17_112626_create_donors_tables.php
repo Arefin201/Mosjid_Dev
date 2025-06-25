@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->string('phone');
             $table->string('email')->nullable();
             $table->decimal('amount', 10, 2);
+            $table->string('person_image')->nullable();
             $table->enum('payment_method', ['cash', 'bank', 'mobile', 'card']);
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->date('last_paid')->nullable();

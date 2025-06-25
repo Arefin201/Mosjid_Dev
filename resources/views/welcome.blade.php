@@ -4,7 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al-Noor Mosque | Islamic Center</title>
+    <title>Badda Al-Amin Jame Mosjid| Islamic Center</title>
+
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Stay updated with accurate prayer times, announcements, and services from our Masjid." />
+    <meta name="keywords"
+        content="Mosque, Masjid, Prayer Time, Islamic Center, Jummah, Ramadan, Salah Schedule, Muslim Community" />
+    <meta name="author" content="Arefin Islam" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+    <meta property="og:title" content="Masjid - Accurate Prayer Times & Announcements" />
+    <meta property="og:description"
+        content="Get latest prayer schedules, events, and updates from your local Masjid." />
+    <meta property="og:image" content="https://yourdomain.com/preview.jpg" />
+    <meta property="og:url" content="https://yourdomain.com" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Masjid - Prayer Time & Info" />
+    <meta name="twitter:description" content="Follow accurate daily Salah time & Islamic announcements." />
+    <meta name="twitter:image" content="https://yourdomain.com/preview.jpg" />
+
+
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -18,6 +44,7 @@
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
         :root {
             --primary-green: #0a5f38;
@@ -278,7 +305,6 @@
             $home = $homes->first();
             $bannerImage = $home->banner_image ? asset('storage/' . $home->banner_image) : asset('default.jpg');
         @endphp
-
         <section id="home" class="hero-bg pt-24 pb-32 text-white"
             style="background-image: linear-gradient(rgba(2, 71, 2, 0.288), rgba(0, 30, 0, 0.541)), url('{{ $bannerImage }}'); background-size: cover; background-position: center;">
 
@@ -287,7 +313,7 @@
                     <!-- Home Content -->
                     <div>
                         <h1 class="text-4xl md:text-5xl font-bold mb-6">
-                            <span class="text-yellow-300">{{ $home->title }}</span>
+                            <span class="text-yellow-300 font-light">{{ $home->title }}</span>
                         </h1>
                         <p class="text-xl mb-8 leading-relaxed text-white">{{ $home->subtitle }}</p>
                         <div class="flex flex-wrap gap-4">
@@ -326,7 +352,7 @@
                                             </svg>
                                         </div>
                                         <div>
-                                            <h3 class="font-bold">Fajr</h3>
+                                            <h3 class="font-bold">ফজর </h3>
                                             <p class="text-sm text-gray-300">Dawn Prayer</p>
                                         </div>
                                     </div>
@@ -357,7 +383,7 @@
                                             </svg>
                                         </div>
                                         <div>
-                                            <h3 class="font-bold">Dhuhr</h3>
+                                            <h3 class="font-bold">যোহর</h3>
                                             <p class="text-sm text-gray-300">Noon Prayer</p>
                                         </div>
                                     </div>
@@ -380,7 +406,7 @@
                                             </svg>
                                         </div>
                                         <div>
-                                            <h3 class="font-bold">Asr</h3>
+                                            <h3 class="font-bold">আসর</h3>
                                             <p class="text-sm text-gray-300">Afternoon Prayer</p>
                                         </div>
                                     </div>
@@ -410,7 +436,7 @@
                                             </svg>
                                         </div>
                                         <div>
-                                            <h3 class="font-bold">Maghrib</h3>
+                                            <h3 class="font-bold">মাগরিব</h3>
                                             <p class="text-sm text-gray-300">Sunset Prayer</p>
                                         </div>
                                     </div>
@@ -440,7 +466,7 @@
                                             </svg>
                                         </div>
                                         <div>
-                                            <h3 class="font-bold">Isha</h3>
+                                            <h3 class="font-bold">ইশা</h3>
                                             <p class="text-sm text-gray-300">Night Prayer</p>
                                         </div>
                                     </div>
@@ -490,27 +516,22 @@
                             <div class="w-24 h-1 bg-yellow-500 mx-auto mt-4 rounded-full"></div>
                         </div>
 
-                        <div class="donor-scroll-container overflow-hidden relative rounded-lg border border-green-300 bg-white"
-                            style="height: 60vh;">
+                        <div
+                            class="donor-scroll-container overflow-hidden relative rounded-lg border border-green-300 bg-white">
                             <ul class="animate-scrollUp space-y-3 py-4">
-                                @foreach ($donors as $donor)
-                                    <li
-                                        class="donor-card bg-white p-4 rounded-lg shadow text-center text-green-800 font-medium">
-                                        {{ $donor->name }}
-                                        <span class="block text-yellow-600 text-sm mt-1">৳
-                                            {{ number_format($donor->amount, 2) }}</span>
-                                    </li>
-                                @endforeach
-
-                                <!-- Duplicate for continuous scrolling -->
-                                @foreach ($donors as $donor)
-                                    <li
-                                        class="donor-card bg-white p-4 rounded-lg shadow text-center text-green-800 font-medium">
-                                        {{ $donor->name }}
-                                        <span class="block text-yellow-600 text-sm mt-1">৳
-                                            {{ number_format($donor->amount, 2) }}</span>
-                                    </li>
-                                @endforeach
+                                <tr class="compact-donor">
+                                    @foreach ($donors as $donor)
+                                        <li
+                                            class="flex donor-card bg-white p-4 rounded-lg shadow text-center text-green-800 font-medium">
+                                            <img src="{{ asset($donor->person_image) }}" alt="Donor"
+                                                class="flex-none w-12 h-12 border-2 border-islamic-gold mr-3">
+                                            {{ $donor->name }}
+                                            <span class="flex-1 text-yellow-600 text-sm mt-1">৳
+                                                {{ number_format($donor->amount, 2) }}</span>
+                                        </li>
+                                    @endforeach
+                                    </td>
+                                </tr>    
                             </ul>
                         </div>
 
@@ -560,9 +581,9 @@
                             @php
                                 $categories = [
                                     'monthly_chanda' => ['label' => 'Monthly Chanda', 'color' => 'bg-green-600'],
-                                    'zakat' => ['label' => 'Zakat', 'color' => 'bg-green-600'],
-                                    'fitrah' => ['label' => 'Fitrah', 'color' => 'bg-green-600'],
-                                    'mosque_fund' => ['label' => 'Mosque Fund', 'color' => 'bg-green-600'],
+                                    'zakat' => ['label' => 'Zakat', 'color' => 'bg-red-600'],
+                                    'fitrah' => ['label' => 'Fitrah', 'color' => 'bg-yellow-800'],
+                                    'mosque_fund' => ['label' => 'Mosque Fund', 'color' => 'bg-cyan-600'],
                                 ];
                             @endphp
 
@@ -1410,10 +1431,10 @@
                             {{ $chartData['mosque_fund'] }}
                         ],
                         backgroundColor: [
-                            '#0a5f38',
-                            '#0d7a4a',
-                            '#11965d',
-                            '#16b370'
+                            '#16b370',
+                            '#ff6347',
+                            '#866a49',
+                            '#0000ff'
                         ],
                         borderColor: '#f9fafb',
                         borderWidth: 2

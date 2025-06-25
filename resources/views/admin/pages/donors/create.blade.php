@@ -14,9 +14,12 @@
                     </a>
                 </div>
 
-                <form id="donorForm" method="POST" action="{{ route('admin.donors.store') }}" class="space-y-4" novalidate="novalidate">
+                <form id="donorForm" method="POST" action="{{ route('admin.donors.store') }}" enctype="multipart/form-data"
+                    class="space-y-4" novalidate="novalidate">
                     @csrf
-                    
+
+                    <!-- Existing fields... -->
+
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
                         <input type="text" name="name" required
@@ -72,6 +75,31 @@
                         <input type="date" name="start_date"
                             class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
                     </div>
+                    <!-- Add this new image upload field -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Donor Image</label>
+                        <div class="mt-1 flex items-center">
+                            <div class="relative">
+                                <img id="imagePreview" src="{{ asset('images/default-user.png') }}"
+                                    class="w-20 h-20 rounded-full object-cover border-2 border-gray-300">
+                                <label for="person_image"
+                                    class="absolute bottom-0 right-0 bg-white rounded-full p-1 border border-gray-300 cursor-pointer">
+                                    <i class="fas fa-camera text-gray-600"></i>
+                                    <input type="file" id="person_image" name="person_image" class="hidden"
+                                        accept="image/*">
+                                </label>
+                            </div>
+                            <div class="ml-4">
+                                <button type="button" id="removeImage" class="text-red-600 text-sm hidden">
+                                    <i class="fas fa-trash mr-1"></i> Remove
+                                </button>
+                                <p class="text-xs text-gray-500 mt-1">Max 2MB. JPG, PNG, GIF</p>
+                            </div>
+                        </div>
+                        <span class="text-red-500 text-sm error-person_image"></span>
+                    </div>
+
+                    <!-- Rest of your existing form fields... -->
 
                     <div class="flex space-x-3 pt-4">
                         <button type="submit" class="flex-1 btn-primary text-white py-2 rounded-lg">
@@ -88,79 +116,83 @@
     </div>
 @endsection
 
+@push('styles')
+    <style>
+        #imagePreview {
+            transition: all 0.3s ease;
+        }
+
+        #removeImage:hover {
+            text-decoration: underline;
+        }
+    </style>
+@endpush
+
 @push('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
     <script>
         $(document).ready(function() {
-            // Initialize form validation
+            // Image preview functionality
+            $('#person_image').change(function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        $('#imagePreview').attr('src', event.target.result);
+                        $('#removeImage').removeClass('hidden');
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // Remove image functionality
+            $('#removeImage').click(function() {
+                $('#person_image').val('');
+                $('#imagePreview').attr('src', "{{ asset('images/default-user.png') }}");
+                $(this).addClass('hidden');
+            });
+
+            // Update form validation to include image
             $('#donorForm').validate({
                 rules: {
-                    name: {
-                        required: true,
-                        minlength: 2,
-                        maxlength: 255
-                    },
-                    phone: {
-                        required: true,
-                        minlength: 10,
-                        maxlength: 20
-                    },
-                    email: {
-                        email: true,
-                        maxlength: 255
-                    },
-                    amount: {
-                        required: true,
-                        number: true,
-                        min: 0.01
-                    },
-                    payment_method: {
-                        required: true
-                    },
-                    start_date: {
-                        date: true
+                    // ... your existing rules ...
+                    person_image: {
+                        accept: "image/jpeg,image/png,image/gif",
+                        filesize: 2048 // 2MB
                     }
                 },
                 messages: {
-                    name: {
-                        required: "Please enter donor's full name",
-                        minlength: "Name must be at least 2 characters"
-                    },
-                    phone: {
-                        required: "Phone number is required",
-                        minlength: "Phone number must be at least 10 digits"
-                    },
-                    amount: {
-                        required: "Please enter donation amount",
-                        min: "Amount must be at least 0.01"
-                    },
-                    payment_method: {
-                        required: "Please select a payment method"
+                    // ... your existing messages ...
+                    person_image: {
+                        accept: "Please upload a valid image (JPG, PNG, GIF)",
+                        filesize: "Image must be less than 2MB"
                     }
                 },
-                errorPlacement: function(error, element) {
-                    // Custom error placement
-                    const fieldName = element.attr('name');
-                    $(`.error-${fieldName}`).html(error);
-                },
-                submitHandler: function(form) {
-                    // Clear previous errors
-                    $('.text-red-500').html('');
-                    
-                    // Serialize form data
-                    const formData = $(form).serialize();
-                    
-                    // Submit form via AJAX
+                // ... rest of your validation config ...
+            });
+
+            // Custom validation method for file size
+            $.validator.addMethod('filesize', function(value, element, param) {
+                return this.optional(element) || (element.files[0].size <= param * 1024);
+            }, 'File size must be less than {0} KB');
+
+            // Update AJAX form submission to handle file uploads
+            $('#donorForm').submit(function(e) {
+                e.preventDefault();
+
+                if ($(this).valid()) {
+                    const formData = new FormData(this);
+
                     $.ajax({
-                        url: $(form).attr('action'),
+                        url: $(this).attr('action'),
                         method: 'POST',
                         data: formData,
+                        processData: false,
+                        contentType: false,
                         success: function(response) {
-                            // Close modal and redirect
                             window.location.href = "{{ route('admin.donors.index') }}";
                         },
                         error: function(xhr) {
-                            // Handle validation errors
                             const errors = xhr.responseJSON.errors;
                             $.each(errors, function(key, value) {
                                 $(`.error-${key}`).html(`<span>${value[0]}</span>`);
@@ -175,6 +207,8 @@
                 $('#donorForm')[0].reset();
                 $('.text-red-500').html('');
                 $('select[name="status"]').val('active');
+                $('#imagePreview').attr('src', "{{ asset('images/default-user.png') }}");
+                $('#removeImage').addClass('hidden');
             });
         });
     </script>

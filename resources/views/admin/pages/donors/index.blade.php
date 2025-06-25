@@ -42,7 +42,7 @@
                             <th class="px-4 py-3 text-left font-medium text-gray-700">Amount</th>
                             <th class="px-4 py-3 text-left font-medium text-gray-700">Method</th>
                             <th class="px-4 py-3 text-left font-medium text-gray-700">Status</th>
-                            <th class="px-4 py-3 text-left font-medium text-gray-700">Last Paid</th>
+                            <th class="px-4 py-3 text-left font-medium text-gray-700">Imame</th>
                             <th class="px-4 py-3 text-left font-medium text-gray-700">Actions</th>
                         </tr>
                     </thead>
@@ -61,7 +61,9 @@
                                     </span>
                                 </td>
                                 <td class="px-4 py-3">
-                                    {{ $donor->last_paid ? $donor->last_paid->format('Y-m-d') : 'Never' }}</td>
+                                    <img src="{{ asset($donor->person_image) }}" alt="Donor"
+                                        class="min-w-16 h-16 border-2 border-islamic-gold mr-3">
+                                </td>
                                 <td class="px-4 py-3">
                                     <a href="{{ route('admin.donors.edit', $donor->id) }}"
                                         class="text-blue-600 hover:text-blue-800 mr-2">
